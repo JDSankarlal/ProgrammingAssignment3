@@ -1,4 +1,4 @@
-#include "Classes.h"
+#include "Classes.h" ssrand(time(NULL));
 #include <iostream>
 #include <string>
 
@@ -37,7 +37,6 @@ void selection()
 		player1->race = "Half-Orc";
 	}
 
-
 	//Class
 	cout << "\nPlease enter player 1's class from the following list"
 		<< "\n 1. Fighter\n 2. Wizard\n 3. Rogue\n 4. Ranger";
@@ -46,21 +45,72 @@ void selection()
 	cin >> specialty; //Get player 1 class
 	if (specialty == 1)
 	{
-		Player *player1 = new Fighter; //creates player1 object
+		Player *player2 = new Fighter; //creates player1 object
 	}
 	else if (specialty == 2)
 	{
-		Player *player1 = new Wizard; //creates player1 object
+		Player *player2 = new Wizard; //creates player1 object
 	}
 	else if (specialty == 3)
 	{
-		Player *player1 = new Rogue; //creates player1 object
+		Player *player2 = new Rogue; //creates player1 object
 	}
 	else if (specialty == 4)
 	{
-		Player *player1 = new Ranger; //creates player1 object
+		Player *player2 = new Ranger; //creates player1 object
 	}
 
+	//Player 2 Selection
+
+	cout << "Please enter player 2's name" << endl;
+	cin >> player2->name; //Get player 2 name
+
+						  //Race
+	cout << "\nPlease enter player 2's race from the following list"
+		<< "\n 1. Human\n 2. Dwarf\n 3. Elf\n 4. Half-Orc";
+	cout << endl;
+
+	cin >> race; //Get player 2 Race
+	if (race == 1)
+	{
+		player2->race = "Human";
+	}
+	else if (race == 2)
+	{
+		player2->race = "Dwarf";
+	}
+	else if (race == 3)
+	{
+		player2->race = "Elf";
+	}
+	else if (race == 4)
+	{
+		player2->race = "Half-Orc";
+	}
+
+
+	//Class
+	cout << "\nPlease enter player 2's class from the following list"
+		<< "\n 1. Fighter\n 2. Wizard\n 3. Rogue\n 4. Ranger";
+	cout << endl;
+
+	cin >> specialty; //Get player 2 class
+	if (specialty == 1)
+	{
+		Player *player2 = new Fighter; //creates player2 object
+	}
+	else if (specialty == 2)
+	{
+		Player *player2 = new Wizard; //creates player2 object
+	}
+	else if (specialty == 3)
+	{
+		Player *player2 = new Rogue; //creates player2 object
+	}
+	else if (specialty == 4)
+	{
+		Player *player2 = new Ranger; //creates player2 object
+	}
 	system("cls");
 }
 
@@ -68,6 +118,7 @@ void drawGrid()
 {
 	//const int SIZE;
 	//the grid for now
+	cout << player1->name << "vs." << player2->name << endl;
 	char grid[5][5] = { { '*','*','*','*','*' },//grid. Needs Lines between the stars tho
 						{ '*','*','*','*','*' },
 						{ '*','*','*','*','*' }, 
