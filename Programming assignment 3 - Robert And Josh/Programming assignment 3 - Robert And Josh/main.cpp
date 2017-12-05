@@ -60,8 +60,8 @@ void selection()
 		Player *player2 = new Ranger; //creates player1 object
 	}
 
-	//Player 2 Selection
 
+	//Player 2 Selection
 	cout << "Please enter player 2's name" << endl;
 	cin >> player2->name; //Get player 2 name
 
@@ -88,7 +88,6 @@ void selection()
 		player2->race = "Half-Orc";
 	}
 
-
 	//Class
 	cout << "\nPlease enter player 2's class from the following list"
 		<< "\n 1. Fighter\n 2. Wizard\n 3. Rogue\n 4. Ranger";
@@ -111,6 +110,7 @@ void selection()
 	{
 		Player *player2 = new Ranger; //creates player2 object
 	}
+	system("pause");
 	system("cls");
 }
 
