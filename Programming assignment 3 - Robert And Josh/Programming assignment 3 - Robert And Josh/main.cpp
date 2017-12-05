@@ -87,6 +87,11 @@ void selection()
 	{
 		player2->race = "Half-Orc";
 	}
+	else
+	{
+		cout << "Your input is invalid, player 2 will be defaulted to Human" << endl;
+		player2->race = "Human";
+	}
 
 	//Class
 	cout << "\nPlease enter player 2's class from the following list"
@@ -110,6 +115,11 @@ void selection()
 	{
 		Player *player2 = new Ranger; //creates player2 object
 	}
+	else
+	{
+		cout << "Your input is invalid, player 2 will be defaulted to the Fighter class" << endl;
+		Player *player2 = new Fighter;
+	}
 	system("pause");
 	system("cls");
 }
@@ -118,7 +128,7 @@ void drawGrid()
 {
 	//const int SIZE;
 	//the grid for now
-	cout << player1->name << "vs." << player2->name << endl;
+	cout << player1->name << " VS." << player2->name << "\n" << endl;
 	char grid[5][5] = { { '*','*','*','*','*' },//grid. Needs Lines between the stars tho
 						{ '*','*','*','*','*' },
 						{ '*','*','*','*','*' }, 
