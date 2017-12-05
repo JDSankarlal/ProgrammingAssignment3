@@ -147,7 +147,7 @@ void selection()
 
 void displayStats()
 {
-	cout << player1->name << " is a " << player2->specialty << " with " << player1->attack << " attack, " << player1->damage << "damage, " << player1->armor << " armor, and " << player1->health << " health\n" << endl;
+	cout << player1->name << " is a " << player1->specialty << " with " << player1->attack << " attack, " << player1->damage << "damage, " << player1->armor << " armor, and " << player1->health << " health\n" << endl;
 	cout << player2->name << " is a " << player2->specialty << " with " << player2->attack << " attack, " << player2->damage << "damage, " << player2->armor << " armor, and " << player2->health << " health\n" << endl;
 	system("pause");
 }
