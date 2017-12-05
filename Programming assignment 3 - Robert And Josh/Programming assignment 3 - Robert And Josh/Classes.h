@@ -9,6 +9,7 @@ using std::string;
 using namespace std;
 
 int turn = 1;
+bool stillPlaying = true;
 
 class Player
 {
@@ -17,7 +18,6 @@ public:
 	string weapon, name, gender, race, specialty;//string variables
 	int position[2]; //grid position
 };
-
 
 class Fighter : public Player
 {

@@ -192,9 +192,126 @@ void drawGrid()
 }
 
 //battle function
-void fight()
+int rollD20()
 {
+	int d20 = rand() % 20 + 1;
+	return d20;
+}
 
+void applyDamageToP1()
+{
+	player1->health -= player2->damage;
+	cout << player1->name << " was hit and took " << player2->damage << " damage" << endl;
+}
+void applyDamageToP2()
+{
+	player1->health -= player2->damage;
+	cout << player2->name << " was hit and took " << player1->damage << " damage" << endl;
+}
+
+bool checkPlayer1Dead()
+{
+	return (player1->health <= 0);
+}
+bool checkPlayer2Dead()
+{
+	return (player2->health <= 0);
+}
+
+void endGame()
+{
+	//Set up the end of the game
+	cout << "Thanks for playing!" << endl;
+	stillPlaying = false;
+}
+
+bool fight() { //fight function
+
+	int modifiedAttack; // attack + diceroll
+	while (stillPlaying == true)
+	{
+		int turn = rand() % 2 + 1; //sets turn randomly
+		if (turn == 1) //if turn = 1 then attack
+		{
+			modifiedAttack = rollD20() + player1->attack;
+			if (modifiedAttack >= player2->armor) //if hit apply damage
+			{
+				cout << player1->name << "attacks and hits!" << endl;
+				applyDamageToP2();
+				if (checkPlayer2Dead()) //if damage check if dead
+				{
+					printf("Player 2 has fallen\nPlayer 1 is Victorious!\n");
+					endGame();
+					break;
+				}
+
+			}
+			else //else misses
+			{
+				cout << player1->name << " attacks and Misses horribly" << endl;
+			}
+			checkPlayer2Dead();
+
+			//repeat for p2
+			modifiedAttack = rollD20() + player2->attack;
+			if (modifiedAttack >= player1->armor)
+			{
+				applyDamageToP1();
+				cout << player2->name << "attacks and hits!" << endl;
+				if (checkPlayer1Dead())
+				{
+					printf("Player 1 has fallen\nPlayer 2 is Victorious!\n");
+					endGame();
+					break;
+				}
+			}
+			else
+			{
+				cout << player2->name << " attacks and Misses horribly" << endl;
+			}
+		}
+
+		//if the turn = 2 at the start then do it in reverse order
+		else
+		{
+			int modifiedAttack = rollD20() + player2->attack;
+			if (modifiedAttack >= player1->armor)
+			{
+				applyDamageToP1();
+				cout << player2->name << "attacks and hits!" << endl;
+			}
+			else
+			{
+				cout << player2->name << " attacks and Misses horribly" << endl;
+			}
+			checkPlayer1Dead();
+			if (checkPlayer1Dead())
+			{
+				printf("Player 1 has fallen\nPlayer 2 is Victorious!\n");
+				endGame();
+				break;
+			}
+
+			modifiedAttack = rollD20() + player1->attack;
+			if (modifiedAttack >= player2->armor)
+			{
+				applyDamageToP2();
+				cout << player1->name << "attacks and hits!" << endl;
+			}
+			else
+			{
+				cout << player1->name << " attacks and Misses horribly" << endl;
+			}
+			checkPlayer2Dead();
+			if (checkPlayer2Dead())
+			{
+				printf("Player 2 has fallen\nPlayer 1 is Victorious!\n");
+				endGame();
+				break;
+			}
+		}
+		return turn; //return turn
+	}
 }
 
 //Main
@@ -203,6 +320,7 @@ void main()
 	srand(time(NULL));
 	selection(); //Call the character Select for player 1
 	displayStats(); //Calls display stats function
+	fight();//calls fight function
 	drawGrid();//Calls the grid
 	system("pause"); //Pause
 }
