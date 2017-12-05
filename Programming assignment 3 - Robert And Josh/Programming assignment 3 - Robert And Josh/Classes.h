@@ -8,6 +8,8 @@
 using std::string;
 using namespace std;
 
+int turn = 1;
+
 class Player
 {
 public:
@@ -22,32 +24,39 @@ class Fighter : public Player
 public:
 	Fighter() {
 	attack = 20;
-	damage;
+	damage=20;
 	armor = 26;
-	health; //stats
+	health=100; //stats
 	}
 };
 class Wizard : public Player
 {
 public:
 	Wizard() {
-
-	int attack, damage = 10 + ((rand ()% 10) + 5), armor = 18, health; //stats
+		attack = 10;
+		damage = 10 + ((rand() % 10) + 5);  
+		armor = 18; 
+		health = 100; //stats
 	}
 };
 class Rogue : public Player
 {
 public:
 	Rogue() {
-
-	int attack, damage = 5 + ((rand()% 5) + 3), armor = 20, health; //stats
+		attack = 10; 
+		damage = 5 + ((rand() % 5) + 3);  
+		armor = 20;  
+		health=100; //stats
 	}
 };
 class Ranger : public Player
 {
 public:
 	Ranger() {
-	int attack, damage = (14 + ((rand()% 10) + 1)) * 2, armor = 21, health; //stats
+		attack=10; 
+		damage = (14 + ((rand() % 10) + 1)) * 2;
+		armor = 21; 
+		health =100; //stats
 	}
 };
 
