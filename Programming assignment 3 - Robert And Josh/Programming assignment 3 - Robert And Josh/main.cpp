@@ -22,6 +22,7 @@ void selection()
 		<< "\n 1. Fighter\n 2. Wizard\n 3. Rogue\n 4. Ranger";
 	cout << endl;
 	cin >> player1->specialty; //Get player 1 class
+	system("cls");
 }
 
 void drawGrid()
@@ -54,7 +55,6 @@ void drawGrid()
 void main()
 {
 	selection(); //Call the character Select for player 1
-
 
 	drawGrid();//Calls the grid
 	system("pause"); //Pause
