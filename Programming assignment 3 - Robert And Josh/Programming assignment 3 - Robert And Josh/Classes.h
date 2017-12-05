@@ -1,7 +1,9 @@
 #pragma once
 #include <string>
 #include <iostream>
-
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 
 using std::string;
 using namespace std;
@@ -19,15 +21,15 @@ class Fighter : public Player
 };
 class Wizard : public Player
 {
-	int attack, damage = 10 + ((rand % 10) + 5), armor = 18, health; //stats
+	int attack, damage = 10 + ((rand ()% 10) + 5), armor = 18, health; //stats
 };
 class Rogue : public Player
 {
-	int attack, damage = 5 + ((rand% 5) + 3), armor = 20, health; //stats
+	int attack, damage = 5 + ((rand()% 5) + 3), armor = 20, health; //stats
 };
 class Ranger : public Player
 {
-	int attack, damage = (14 + ((rand% 10) + 1)) * 2, armor = 21, health; //stats
+	int attack, damage = (14 + ((rand()% 10) + 1)) * 2, armor = 21, health; //stats
 };
 
 Player *player1 = new Player; //creates player2 object
