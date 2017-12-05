@@ -5,16 +5,48 @@
 #include <string>
 
 using namespace std;
-
+Player* player1 = nullptr;
+Player* player2 = nullptr;
 //Character Select
 void selection()
 {
 	int specialty;
 	string name;
 	int race;
-	//Name
-	cout << "Please enter player 1's name" << endl; 
-	cin >> player1->name; //Get player 1 name
+
+	
+	//Class
+	cout << "\nPlease enter player 1's class from the following list"
+		<< "\n 1. Fighter\n 2. Wizard\n 3. Rogue\n 4. Ranger";
+	cout << endl;
+
+	cin >> specialty; //Get player 1 class
+	if (specialty == 1)
+	{
+		player1 = new Fighter; //creates player1 object
+		player1->specialty = "Fighter";
+	}
+	else if (specialty == 2)
+	{
+		player1 = new Wizard; //creates player1 object
+		player1->specialty = "Wizard";
+	}
+	else if (specialty == 3)
+	{
+		player1 = new Rogue; //creates player1 object
+		player1->specialty = "Rogue";
+	}
+	else if (specialty == 4)
+	{
+		player1 = new Ranger; //creates player1 object
+		player1->specialty = "Ranger";
+	}
+	else
+	{
+		cout << "Your input is invalid, player 1 will be defaulted to the Fighter class" << endl;
+		player1= new Fighter;
+		player1->specialty = "Fighter";
+	}
 
 	//Race
 	cout << "\nPlease enter player 1's race from the following list"
@@ -43,46 +75,45 @@ void selection()
 		cout << "Your input is invalid, player 1 will be defaulted to Human" << endl;
 		player1->race = "Human";
 	}
+	//Name
+	cout << "Please enter player 1's name" << endl;
+	cin >> player1->name; //Get player 1 name
+
 
 	//Class
-	cout << "\nPlease enter player 1's class from the following list"
+	cout << "\nPlease enter player 2's class from the following list"
 		<< "\n 1. Fighter\n 2. Wizard\n 3. Rogue\n 4. Ranger";
 	cout << endl;
 
-	cin >> specialty; //Get player 1 class
+	cin >> specialty; //Get player 2 class
 	if (specialty == 1)
 	{
-		Player *player2 = new Fighter; //creates player1 object
-		player1->specialty = "Fighter";
+		player2 = new Fighter; //creates player2 object
+		player2->specialty = "Fighter";
 	}
 	else if (specialty == 2)
 	{
-		Player *player2 = new Wizard; //creates player1 object
-		player1->specialty = "Wizard";
+		player2 = new Wizard; //creates player2 object
+		player2->specialty = "Wizard";
 	}
 	else if (specialty == 3)
 	{
-		Player *player2 = new Rogue; //creates player1 object
-		player1->specialty = "Rogue";
+		player2 = new Rogue; //creates player2 object
+		player2->specialty = "Rogue";
 	}
 	else if (specialty == 4)
 	{
-		Player *player2 = new Ranger; //creates player1 object
-		player1->specialty = "Ranger";
+		player2 = new Ranger; //creates player2 object
+		player2->specialty = "Ranger";
 	}
 	else
 	{
-		cout << "Your input is invalid, player 1 will be defaulted to the Fighter class" << endl;
-		Player *player1 = new Fighter;
-		player1->specialty = "Fighter";
+		cout << "Your input is invalid, player 2 will be defaulted to the Fighter class" << endl;
+		player2 = new Fighter;
+		player2->specialty = "Fighter";
 	}
 
-
-	//Player 2 Selection
-	cout << "Please enter player 2's name" << endl;
-	cin >> player2->name; //Get player 2 name
-
-						  //Race
+	 //Race
 	cout << "\nPlease enter player 2's race from the following list"
 		<< "\n 1. Human\n 2. Dwarf\n 3. Elf\n 4. Half-Orc";
 	cout << endl;
@@ -109,39 +140,10 @@ void selection()
 		cout << "Your input is invalid, player 2 will be defaulted to Human" << endl;
 		player2->race = "Human";
 	}
-
-	//Class
-	cout << "\nPlease enter player 2's class from the following list"
-		<< "\n 1. Fighter\n 2. Wizard\n 3. Rogue\n 4. Ranger";
-	cout << endl;
-
-	cin >> specialty; //Get player 2 class
-	if (specialty == 1)
-	{
-		Player *player2 = new Fighter; //creates player2 object
-		player2->specialty = "Fighter";
-	}
-	else if (specialty == 2)
-	{
-		Player *player2 = new Wizard; //creates player2 object
-		player2->specialty = "Wizard";
-	}
-	else if (specialty == 3)
-	{
-		Player *player2 = new Rogue; //creates player2 object
-		player2->specialty = "Rogue";
-	}
-	else if (specialty == 4)
-	{
-		Player *player2 = new Ranger; //creates player2 object
-		player2->specialty = "Ranger";
-	}
-	else
-	{
-		cout << "Your input is invalid, player 2 will be defaulted to the Fighter class" << endl;
-		Player *player2 = new Fighter;
-		player2->specialty = "Fighter";
-	}
+	//Player 2 Selection
+	cout << "Please enter player 2's name" << endl;
+	cin >> player2->name; //Get player 2 name
+	
 	system("pause");
 
 	system("cls");
@@ -149,8 +151,8 @@ void selection()
 
 void displayStats()
 {
-	cout << player1->name << " is a " << player1->specialty << " with " << player1->attack << " attack, " << player1->damage << "damage, " << player1->armor << " armor, and " << player1->health << " health\n" << endl;
-	cout << player2->name << " is a " << player2->specialty << " with " << player2->attack << " attack, " << player2->damage << "damage, " << player2->armor << " armor, and " << player2->health << " health\n" << endl;
+	cout << player1->name << " is a " << player1->specialty << " with " << player1->attack << " attack, " << player1->damage << " damage, " << player1->armor << " armor, and " << player1->health << " health\n" << endl;
+	cout << player2->name << " is a " << player2->specialty << " with " << player2->attack << " attack, " << player2->damage << " damage, " << player2->armor << " armor, and " << player2->health << " health\n" << endl;
 	system("pause");
 }
 
