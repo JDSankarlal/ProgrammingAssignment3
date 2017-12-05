@@ -60,5 +60,5 @@ public:
 	}
 };
 
-Player *player1 = new Player; //creates player2 object
-Player *player2 = new Player; //creates player2 object
+
+
