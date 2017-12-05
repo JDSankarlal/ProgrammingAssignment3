@@ -36,6 +36,11 @@ void selection()
 	{
 		player1->race = "Half-Orc";
 	}
+	else
+	{
+		cout << "Your input is invalid, player 1 will be defaulted to Human" << endl;
+		player1->race = "Human";
+	}
 
 	//Class
 	cout << "\nPlease enter player 1's class from the following list"
@@ -46,18 +51,28 @@ void selection()
 	if (specialty == 1)
 	{
 		Player *player2 = new Fighter; //creates player1 object
+		player1->specialty = "Fighter";
 	}
 	else if (specialty == 2)
 	{
 		Player *player2 = new Wizard; //creates player1 object
+		player1->specialty = "Wizard";
 	}
 	else if (specialty == 3)
 	{
 		Player *player2 = new Rogue; //creates player1 object
+		player1->specialty = "Rogue";
 	}
 	else if (specialty == 4)
 	{
 		Player *player2 = new Ranger; //creates player1 object
+		player1->specialty = "Ranger";
+	}
+	else
+	{
+		cout << "Your input is invalid, player 1 will be defaulted to the Fighter class" << endl;
+		Player *player1 = new Fighter;
+		player1->specialty = "Fighter";
 	}
 
 
@@ -102,28 +117,40 @@ void selection()
 	if (specialty == 1)
 	{
 		Player *player2 = new Fighter; //creates player2 object
+		player2->specialty = "Fighter";
 	}
 	else if (specialty == 2)
 	{
 		Player *player2 = new Wizard; //creates player2 object
+		player2->specialty = "Wizard";
 	}
 	else if (specialty == 3)
 	{
 		Player *player2 = new Rogue; //creates player2 object
+		player2->specialty = "Rogue";
 	}
 	else if (specialty == 4)
 	{
 		Player *player2 = new Ranger; //creates player2 object
+		player2->specialty = "Ranger";
 	}
 	else
 	{
 		cout << "Your input is invalid, player 2 will be defaulted to the Fighter class" << endl;
 		Player *player2 = new Fighter;
+		player2->specialty = "Fighter";
 	}
 	system("pause");
+
 	system("cls");
 }
 
+void displayStats()
+{
+	cout << player1->name << " is a " << player2->specialty << " with " << player1->attack << " attack, " << player1->damage << "damage, " << player1->armor << " armor, and " << player1->health << " health\n" << endl;
+	cout << player2->name << " is a " << player2->specialty << " with " << player2->attack << " attack, " << player2->damage << "damage, " << player2->armor << " armor, and " << player2->health << " health\n" << endl;
+	system("pause");
+}
 void drawGrid()
 {
 	//const int SIZE;
@@ -156,7 +183,7 @@ void main()
 {
 	srand(time(NULL));
 	selection(); //Call the character Select for player 1
-
+	displayStats(); //Calls display stats function
 	drawGrid();//Calls the grid
 	system("pause"); //Pause
 }
