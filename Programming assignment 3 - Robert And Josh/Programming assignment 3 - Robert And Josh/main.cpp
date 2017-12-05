@@ -1,4 +1,6 @@
 #include "Classes.h" 
+#include "keyInput.h" 
+#include "Events.h" 
 #include <iostream>
 #include <string>
 
@@ -151,8 +153,10 @@ void displayStats()
 	cout << player2->name << " is a " << player2->specialty << " with " << player2->attack << " attack, " << player2->damage << "damage, " << player2->armor << " armor, and " << player2->health << " health\n" << endl;
 	system("pause");
 }
+
 void drawGrid()
 {
+	
 	//const int SIZE;
 	//the grid for now
 	cout << player1->name << " VS." << player2->name << "\n" << endl;
@@ -161,14 +165,14 @@ void drawGrid()
 						{ '*','*','*','*','*' }, 
 						{ '*','*','*','*','*' },
 						{ '*','*','*','*','*' } };
-	int thing[2] = { 2,0 };//placeholder for player1->position since that would only take 1 number for some reason
+	int thing1[2] = { 2,0 };//placeholder for player1->position since that would only take 1 number for some reason
 
 	player1->position[2] = { 1 }; //sets player 1 initial position, should be taking 2 numbers but won't for some reason
 
 	char player = '@'; //Sets the character @ to be the player on the grid
 	for (int i = 0; i < 5; i++) {
 		for (int j = 0; j < 5; j++) {
-			if (i == thing[0] && j == thing[1])
+			if (i == thing1[0] && j == thing1[1])
 				cout << player;//prints the player over the grid
 			else
 				cout << grid[i][j];//prints the grid
@@ -176,8 +180,21 @@ void drawGrid()
 		}
 		cout << endl;
 	}
+	if (turn == 1)
+	{
+		if (Events::keyDown(Events::Left))
+		{
+
+		}
+	}
+}
+
+//battle function
+void fight()
+{
 
 }
+
 //Main
 void main()
 {
