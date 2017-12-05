@@ -1,4 +1,4 @@
-#include "Classes.h" ssrand(time(NULL));
+#include "Classes.h" 
 #include <iostream>
 #include <string>
 
@@ -144,6 +144,7 @@ void drawGrid()
 //Main
 void main()
 {
+	srand(time(NULL));
 	selection(); //Call the character Select for player 1
 
 	drawGrid();//Calls the grid
