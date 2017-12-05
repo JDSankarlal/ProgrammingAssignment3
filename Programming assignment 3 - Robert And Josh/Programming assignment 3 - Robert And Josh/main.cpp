@@ -7,6 +7,9 @@ using namespace std;
 //Character Select
 void selection()
 {
+	int specialty;
+	string name;
+	int race;
 	//Name
 	cout << "Please enter player 1's name" << endl; 
 	cin >> player1->name; //Get player 1 name
@@ -15,13 +18,49 @@ void selection()
 	cout << "\nPlease enter player 1's race from the following list"
 		<< "\n 1. Human\n 2. Dwarf\n 3. Elf\n 4. Half-Orc";
 	cout << endl;
-	cin >> player1->race; //Get player 1 Race
+
+	cin >> race; //Get player 1 Race
+	if (race == 1)
+	{
+		player1->race = "Human";
+	}
+	else if (race == 2)
+	{
+		player1->race = "Dwarf";
+	}
+	else if (race == 3)
+	{
+		player1->race = "Elf";
+	}
+	else if (race == 4)
+	{
+		player1->race = "Half-Orc";
+	}
+
 
 	//Class
 	cout << "\nPlease enter player 1's class from the following list"
 		<< "\n 1. Fighter\n 2. Wizard\n 3. Rogue\n 4. Ranger";
 	cout << endl;
-	cin >> player1->specialty; //Get player 1 class
+
+	cin >> specialty; //Get player 1 class
+	if (specialty == 1)
+	{
+		Player *player1 = new Fighter; //creates player1 object
+	}
+	else if (specialty == 2)
+	{
+		Player *player1 = new Wizard; //creates player1 object
+	}
+	else if (specialty == 3)
+	{
+		Player *player1 = new Rogue; //creates player1 object
+	}
+	else if (specialty == 4)
+	{
+		Player *player1 = new Ranger; //creates player1 object
+	}
+
 	system("cls");
 }
 

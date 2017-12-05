@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 
+
 using std::string;
 using namespace std;
 
@@ -28,5 +29,6 @@ class Ranger : public Player
 {
 	int attack, damage = (14 + ((rand% 10) + 1)) * 2, armor = 21, health; //stats
 };
-Player *player1 = new Player; //creates player1 object
+
+Player *player1 = new Player; //creates player2 object
 Player *player2 = new Player; //creates player2 object
