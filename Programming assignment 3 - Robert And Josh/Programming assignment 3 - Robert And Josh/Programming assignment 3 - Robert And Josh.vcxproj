@@ -112,10 +112,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Events.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sankarlal-Andersen.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Classes.h" />
+    <ClInclude Include="Sankarlal-Andersen.h" />
     <ClInclude Include="Events.h" />
     <ClInclude Include="keyInput.h" />
   </ItemGroup>

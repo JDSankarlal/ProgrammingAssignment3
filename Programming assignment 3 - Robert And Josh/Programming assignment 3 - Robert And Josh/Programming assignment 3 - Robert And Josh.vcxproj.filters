@@ -15,21 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Events.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Events.cpp">
+    <ClCompile Include="Sankarlal-Andersen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Classes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Events.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="keyInput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sankarlal-Andersen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
