@@ -1,3 +1,7 @@
+//Josh Sankarlal - 100658457
+//Robert Andersen - 100658473
+//Programming assignment 3
+
 #pragma once
 #include <string>
 #include <iostream>

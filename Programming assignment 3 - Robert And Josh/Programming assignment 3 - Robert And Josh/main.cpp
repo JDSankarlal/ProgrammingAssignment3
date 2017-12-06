@@ -1,3 +1,7 @@
+//Josh Sankarlal - 100658457
+//Robert Andersen - 100658473
+//Programming assignment 3
+
 #include "Classes.h" 
 #include "keyInput.h" 
 #include "Events.h" 
