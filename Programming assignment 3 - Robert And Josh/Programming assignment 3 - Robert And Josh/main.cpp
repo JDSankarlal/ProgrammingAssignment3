@@ -267,8 +267,8 @@ void fight() { //fight function
 			modifiedAttack = player1->damage + player1->attack;
 			if (modifiedAttack >= player2->armor) //if hit apply damage
 			{
-				cout << player1->name << " attacks and hits!" << endl;
-
+				cout << player1->name << " attacks and hits for " << modifiedAttack << endl;
+				
 				applyDamageToP2();
 				if (checkPlayer2Dead()) //if damage check if dead
 				{
@@ -282,11 +282,12 @@ void fight() { //fight function
 				cout << player1->name << " attacks and Misses horribly" << endl;
 			}
 			//repeat for p2
-			modifiedAttack = rollD20() + player2->attack;
+			modifiedAttack = player2->damage + player2->attack;
 			if (modifiedAttack >= player1->armor)
 			{
 				applyDamageToP1();
-				cout << player2->name << " attacks and hits!" << endl;
+				cout << player2->name << " attacks and hits for " << modifiedAttack << endl;
+				
 				if (checkPlayer1Dead())
 				{
 					cout << player1->name << " has fallen\nPlayer 2 is Victorious!\n" << endl;
@@ -307,8 +308,9 @@ void fight() { //fight function
 			if (modifiedAttack >= player1->armor)
 			{
 				applyDamageToP1();
-				cout << player2->name << " attacks and hits!" << endl;
+				cout << player2->name << " attacks and hits for " << modifiedAttack << endl;
 			}
+
 			else
 			{
 				cout << player2->name << " attacks and misses horribly" << endl;
@@ -325,7 +327,7 @@ void fight() { //fight function
 			if (modifiedAttack >= player2->armor)
 			{
 				applyDamageToP2();
-				cout << player1->name << " attacks and hits!" << endl;
+				cout << player1->name << " attacks and hits for " << modifiedAttack << endl;
 			}
 			else
 			{
