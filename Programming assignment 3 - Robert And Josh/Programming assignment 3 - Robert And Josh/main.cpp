@@ -167,29 +167,60 @@ void drawGrid()
 						{ '*','*','*','*','*' }, 
 						{ '*','*','*','*','*' },
 						{ '*','*','*','*','*' } };
-	int thing1[2] = { 2,0 };//placeholder for player1->position since that would only take 1 number for some reason
-
-	player1->position[2] = { 1 }; //sets player 1 initial position, should be taking 2 numbers but won't for some reason
-
+	char player2char = '?';
 	char player = '@'; //Sets the character @ to be the player on the grid
-	for (int i = 0; i < 5; i++) {
+
+	grid[2][0] = player;		 //Sets the initial position for both players on the grid.
+	grid[2][4] = player2char;	 //Sets the initial position for both players on the grid.
+
+	for (int i = 0; i < 5; i++) 
+	{
 		for (int j = 0; j < 5; j++) {
-			if (i == thing1[0] && j == thing1[1])
-				cout << player;//prints the player over the grid
-			else
 				cout << grid[i][j];//prints the grid
+				cout << " ";
+		}
+		cout << endl;
+	}
+
+	grid[2][0] = '*';
+	grid[2][1] = player;
+	system("pause");
+	system("cls");
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 5; j++) {
+			cout << grid[i][j];//prints the grid
 			cout << " ";
 		}
 		cout << endl;
 	}
-	if (turn == 1)
+	grid[2][3] = player2char;
+	grid[2][4] = '*';
+	system("pause");
+	system("cls");
+	for (int i = 0; i < 5; i++)
 	{
-		if (Events::keyDown(Events::Left))
-		{
-
+		for (int j = 0; j < 5; j++) {
+			cout << grid[i][j];//prints the grid
+			cout << " ";
 		}
+		cout << endl;
+	}
+	grid[2][2] = player;
+	grid[2][1] = '*';
+	system("pause");
+	system("cls");
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 5; j++) {
+			cout << grid[i][j];//prints the grid
+			cout << " ";
+		}
+		cout << endl;
 	}
 }
+
+
 
 //battle function
 int rollD20()
@@ -225,42 +256,40 @@ void endGame()
 	stillPlaying = false;
 }
 
-bool fight() { //fight function
-
-	int modifiedAttack; // attack + diceroll
+void fight() { //fight function
+	int modifiedAttack; // attack + damage
+	
 	while (stillPlaying == true)
 	{
 		int turn = rand() % 2 + 1; //sets turn randomly
 		if (turn == 1) //if turn = 1 then attack
 		{
-			modifiedAttack = rollD20() + player1->attack;
+			modifiedAttack = player1->damage + player1->attack;
 			if (modifiedAttack >= player2->armor) //if hit apply damage
 			{
-				cout << player1->name << "attacks and hits!" << endl;
+				cout << player1->name << " attacks and hits!" << endl;
+
 				applyDamageToP2();
 				if (checkPlayer2Dead()) //if damage check if dead
 				{
-					printf("Player 2 has fallen\nPlayer 1 is Victorious!\n");
+					cout << player2->name << " has fallen\nPlayer 1 is Victorious!\n" << endl;
 					endGame();
 					break;
 				}
-
 			}
 			else //else misses
 			{
 				cout << player1->name << " attacks and Misses horribly" << endl;
 			}
-			checkPlayer2Dead();
-
 			//repeat for p2
 			modifiedAttack = rollD20() + player2->attack;
 			if (modifiedAttack >= player1->armor)
 			{
 				applyDamageToP1();
-				cout << player2->name << "attacks and hits!" << endl;
+				cout << player2->name << " attacks and hits!" << endl;
 				if (checkPlayer1Dead())
 				{
-					printf("Player 1 has fallen\nPlayer 2 is Victorious!\n");
+					cout << player1->name << " has fallen\nPlayer 2 is Victorious!\n" << endl;
 					endGame();
 					break;
 				}
@@ -272,17 +301,17 @@ bool fight() { //fight function
 		}
 
 		//if the turn = 2 at the start then do it in reverse order
-		else
+		else if (turn == 2)
 		{
 			int modifiedAttack = rollD20() + player2->attack;
 			if (modifiedAttack >= player1->armor)
 			{
 				applyDamageToP1();
-				cout << player2->name << "attacks and hits!" << endl;
+				cout << player2->name << " attacks and hits!" << endl;
 			}
 			else
 			{
-				cout << player2->name << " attacks and Misses horribly" << endl;
+				cout << player2->name << " attacks and misses horribly" << endl;
 			}
 			checkPlayer1Dead();
 			if (checkPlayer1Dead())
@@ -296,11 +325,11 @@ bool fight() { //fight function
 			if (modifiedAttack >= player2->armor)
 			{
 				applyDamageToP2();
-				cout << player1->name << "attacks and hits!" << endl;
+				cout << player1->name << " attacks and hits!" << endl;
 			}
 			else
 			{
-				cout << player1->name << " attacks and Misses horribly" << endl;
+				cout << player1->name << " attacks and misses horribly" << endl;
 			}
 			checkPlayer2Dead();
 			if (checkPlayer2Dead())
@@ -310,7 +339,7 @@ bool fight() { //fight function
 				break;
 			}
 		}
-		return turn; //return turn
+
 	}
 }
 
@@ -320,7 +349,7 @@ void main()
 	srand(time(NULL));
 	selection(); //Call the character Select for player 1
 	displayStats(); //Calls display stats function
-	fight();//calls fight function
 	drawGrid();//Calls the grid
+	fight();//calls fight function
 	system("pause"); //Pause
 }

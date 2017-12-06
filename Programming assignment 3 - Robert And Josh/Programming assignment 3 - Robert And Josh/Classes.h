@@ -15,8 +15,9 @@ class Player
 {
 public:
 	int attack, damage, armor, health; //stats
-	string weapon, name, gender, race, specialty;//string variables
+	string weapon, name, gender, race, specialty,specialOne, specialTwo;//string variables
 	int position[2]; //grid position
+
 };
 
 class Fighter : public Player
@@ -28,6 +29,7 @@ public:
 	armor = 26;
 	health=100; //stats
 	}
+	
 };
 class Wizard : public Player
 {
